@@ -19,7 +19,10 @@ console.log ('hello')
 // lightboxLinks[0].addEventListener('click', function(event)
 
 
-lightboxify('.lightboxify')
+lightboxify('.lightboxify', {
+	overlayOpacity: 0.3,
+	escpapeClosesLightbox: false,
+})
 
 
 
