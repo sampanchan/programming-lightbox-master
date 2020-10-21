@@ -22,6 +22,8 @@ console.log ('hello')
 lightboxify('.lightboxify', {
 	overlayOpacity: 0.3,
 	escpapeClosesLightbox: false,
+	borderColor: 'white',
+	blurryImage: true,
 })
 
 

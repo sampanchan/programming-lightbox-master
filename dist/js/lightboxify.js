@@ -32,6 +32,12 @@ let lightboxify = function(selector, optionsObj ={}){
 
 	if (!optionsObj.hasOwnProperty('escapeClosesLightbox')) optionsObj.escapeClosesLightbox = true
 
+	if (!optionsObj.backgroundColor){
+		optionsObj.borderColor ='white'
+	}
+
+	if (!optionsObj.hasOwnProperty('blurryImage')) optionsObj.blurryImage = true
+
 	console.log('options', optionsObj)
 
 	var lightboxLinks = document.querySelectorAll(selector);
@@ -61,7 +67,7 @@ let lightboxify = function(selector, optionsObj ={}){
 		borderImage.style.left = '50%'
 		borderImage.style.mstransform = 'translate(-50%, -50%)' 
 		borderImage.style.transform = 'translate(-50%, -50%)' 
-		borderImage.style.backgroundColor = 'white'
+		borderImage.style.backgroundColor = '${optionsObj.borderColor}'
 		borderImage.style.padding = '30px'
 		borderImage.style.borderradius = '5px' 
 
@@ -73,6 +79,21 @@ let lightboxify = function(selector, optionsObj ={}){
 		popUpImage.style.display = 'block'
 		popUpImage.style.maxwidth = '90vw'
 		popUpImage.style.maxheight = '80vh'
+		// popUpImage.animate(
+		// 	[{opacity:1, easing: 'ease-out'}, 
+		// 	{opacity:0.1, easing: 'ease-in'},
+		// 	{opacity:0}], 
+
+		// 	2000) <---- works but will play later
+
+		// let grumpyImages = document.querySelector('img')
+		// grumpyImages.classList.add('main-images')
+		if (optionsObj.blurryImage){
+		popUpImage.addEventListener('mouseover', function (event) {
+			popUpImage.target.cssfilter.blur = '7px'
+
+		})
+	}
 
 		//x button
 		let byeByeButton = document.createElement('div')
