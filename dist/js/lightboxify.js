@@ -53,7 +53,7 @@ let lightboxify = function(selector, optionsObj ={}){
 		boxOverlay.style.position ='fixed'
 		boxOverlay.style.top =0
 		boxOverlay.style.left = 0
-		boxOverlay.style.backgroundColor = 'rgba(0, 0, 0, ${optionsObj.overlayOpacity})'
+		boxOverlay.style.backgroundColor = `rgba(0, 0, 0, ${optionsObj.overlayOpacity})`
 		boxOverlay.style.width= '100vw'
 		boxOverlay.style.height= '100vh'
 
@@ -67,7 +67,7 @@ let lightboxify = function(selector, optionsObj ={}){
 		borderImage.style.left = '50%'
 		borderImage.style.mstransform = 'translate(-50%, -50%)' 
 		borderImage.style.transform = 'translate(-50%, -50%)' 
-		borderImage.style.backgroundColor = '${optionsObj.borderColor}'
+		borderImage.style.backgroundColor = optionsObj.borderColor
 		borderImage.style.padding = '30px'
 		borderImage.style.borderradius = '5px' 
 
@@ -90,7 +90,7 @@ let lightboxify = function(selector, optionsObj ={}){
 		// grumpyImages.classList.add('main-images')
 		if (optionsObj.blurryImage){
 		popUpImage.addEventListener('mouseover', function (event) {
-			popUpImage.target.cssfilter.blur = '7px'
+			popUpImage.target.cssFilter.blur = '7px'
 
 		})
 	}
